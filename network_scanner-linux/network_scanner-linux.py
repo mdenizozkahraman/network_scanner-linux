@@ -1,10 +1,12 @@
-#created by Mehmet Deniz Ozkahraman
+# created by Mehmet Deniz Ozkahraman
 
 import scapy.all as scapy
 import optparse
+import subprocess
+import re
 
 
-def get_user_input():
+def option_input():
     parse_object = optparse.OptionParser()
     parse_object.add_option("-i", "--ipaddress", dest="ip_address", help="ip address to scan!")
 
@@ -28,7 +30,20 @@ def network_scanner(user_input):
     answered_list.summary()
 
 
-user_ip_address = get_user_input()
+print("""
+by mdo //-
+
+
+            _                      _                                                 _ _                  
+ _ __   ___| |___      _____  _ __| | __    ___  ___ __ _ _ __  _ __   ___ _ __     | (_)_ __  _   ___  __
+| '_ \ / _ \ __\ \ /\ / / _ \| '__| |/ /   / __|/ __/ _` | '_ \| '_ \ / _ \ '__|____| | | '_ \| | | \ \/ /
+| | | |  __/ |_ \ V  V / (_) | |  |   <    \__ \ (_| (_| | | | | | | |  __/ | |_____| | | | | | |_| |>  < 
+|_| |_|\___|\__| \_/\_/ \___/|_|  |_|\_\___|___/\___\__,_|_| |_|_| |_|\___|_|       |_|_|_| |_|\__,_/_/\_\  
+                                      |_____|                                                             
+
+""")
+
+user_ip_address = option_input()
 
 network_scanner(user_ip_address.ip_address)
 

@@ -63,7 +63,7 @@ def find_ip(a):
 
     print()
 
-    print("-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --")
+    print("-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --")
     print()
     print(
         str(my_ip.group(0)[0:9]) + "           --------->       " + my_mac_address[6:23] + "   (My IP and MAC Address)")

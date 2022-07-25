@@ -2,6 +2,7 @@
 
 import scapy.all as scapy
 import optparse
+import subprocess
 import re
 
 
@@ -32,13 +33,22 @@ def network_scanner(user_input):
 
 
 def find_ip(a):
-    print()
-    print("--------------------------------------------------------------------")
-    print("")
+    print("""
 
-    print("   IP                                   MAC Address")
-    print("  ----                                --------------")
+--------------------------------------------------------------------
+
+   IP                                    MAC Address
+  ----                                 --------------
+    """)
+
     print()
+
+    my_mac = re.search(r"hwdst=\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", str(a))
+    my_mac_address = str(my_mac.group(0))
+
+    my_ip = re.search(
+        r"\b(?:(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[1-9])\.)(?:(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){2}(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\b \|<P",
+        str(a))
 
     for i in range((len(a))):
         ip_scan_address = re.search(
@@ -50,6 +60,13 @@ def find_ip(a):
         mac_address = str(mac_scan_address.group(0))
 
         print(str(ip_scan_address.group(0)) + "            --------->       " + mac_address[2:19])
+
+    print()
+
+    print("-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --")
+    print()
+    print(
+        str(my_ip.group(0)[0:9]) + "           --------->       " + my_mac_address[6:23] + "   (My IP and MAC Address)")
 
 
 print("""

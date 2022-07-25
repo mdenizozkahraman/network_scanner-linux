@@ -5,5 +5,5 @@
 git clone https://github.com/mdenizozkahraman/network_scanner-linux.git
 
 ## Usage
-python3 network_scanner-linux.py -i [e.g. 10.0.2.0/24]
+python3 networkscanner.py -i 10.0.2.0/24 
 

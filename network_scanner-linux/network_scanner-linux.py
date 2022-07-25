@@ -27,7 +27,30 @@ def network_scanner(user_input):
 
     (answered_list, unanswered_list) = scapy.srp(combined_packet, timeout=1)
 
-    answered_list.summary()
+    return list(answered_list)
+
+    # answered_list.summary()
+
+
+def find_ip(a):
+    print()
+    print("--------------------------------------------------------------------")
+    print("")
+
+    print("   IP                                   MAC Address")
+    print("  ----                                --------------")
+    print()
+
+    for i in range((len(a))):
+        ip_scan_address = re.search(
+            r"\b(?:(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[1-9])\.)(?:(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){2}(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\b",
+            str(a[i]))
+
+        mac_scan_address = re.search(r"c=\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", str(a[i]))
+
+        mac_address = str(mac_scan_address.group(0))
+
+        print(str(ip_scan_address.group(0)) + "            --------->       " + mac_address[2:19])
 
 
 print("""
@@ -41,11 +64,10 @@ by mdo //-
 |_| |_|\___|\__| \_/\_/ \___/|_|  |_|\_\___|___/\___\__,_|_| |_|_| |_|\___|_|       |_|_|_| |_|\__,_/_/\_\  
                                       |_____|                                                             
 
+--------------------------------------------------------------------                                                                                                                                                                                     
 """)
 
-user_ip_address = option_input()
-
-network_scanner(user_ip_address.ip_address)
+find_ip(network_scanner(option_input().ip_address))
 
 
 

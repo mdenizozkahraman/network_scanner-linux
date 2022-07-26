@@ -2,7 +2,6 @@
 
 import scapy.all as scapy
 import optparse
-import subprocess
 import re
 
 

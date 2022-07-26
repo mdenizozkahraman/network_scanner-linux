@@ -10,5 +10,6 @@ git clone https://github.com/mdenizozkahraman/network_scanner-linux.git
 python3 networkscanner.py -i 10.0.2.0/24 
 
 ## More Information
+https://medium.com/@mehmetdenizozkahraman/network-scanner-linux-24d40cfe553d
 
 
